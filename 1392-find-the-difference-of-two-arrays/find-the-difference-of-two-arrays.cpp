@@ -8,11 +8,11 @@ public:
        vector<vector<int>> ans(2);
      for (auto it : s1) {
             if (s2.count(it) == 0) {
-                ans[0].push_back(it);   // FIX: push_back
+                ans[0].push_back(it);  
             }
         }
 
-        // Elements in nums2 but not in nums1
+        
         for (auto it : s2) {
             if (s1.count(it) == 0) {
                 ans[1].push_back(it);
