@@ -1,23 +1,34 @@
+void fun(vector<int>&nums,vector<int>&tmp,vector<vector<int>>&ans){
+    
+    
+
+    if(nums.size()==0){
+        ans.push_back(tmp);
+        return ;
+    }
+
+    for(int i=0;i<nums.size();i++){
+        vector<int>ip(nums),op(tmp);
+
+        // ip={1,2,4} op={}
+        op.push_back(nums[i]);
+        
+        
+        ip.erase(ip.begin()+i);
+
+
+        fun(ip,op,ans);
+    }
+}
+
+
 class Solution {
 public:
     vector<vector<int>> permute(vector<int>& nums) {
-
-        vector<vector<int>> ans;
-
-        recurPermute(0, ans, nums);
-
+        vector<int>tmp;
+        vector<vector<int>>ans;
+        fun(nums,tmp,ans);
+        sort(ans.begin(),ans.end());
         return ans;
     }
-    void recurPermute(int index,
-                  vector<vector<int>> &ans,
-                  vector<int> &nums){
-        if(index == nums.size()){
-        ans.push_back(nums);
-        return;
-    }
-    for(int i = index ; i < nums.size(); i++){
-        swap(nums[index], nums[i]);
-        recurPermute(index+1 , ans, nums);
-        swap(nums[index], nums[i]);
-    }}
 };
