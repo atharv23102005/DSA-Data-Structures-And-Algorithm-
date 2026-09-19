@@ -8,16 +8,16 @@ int fun(int i ,vector<int>& nums, int p , int k ){
 
     int m = 0 ;
      if(p==-1 || nums[i]==nums[p]){
-        int a=1+fun(i+1,nums,i,k);
-        m=max(m,a);
+        int g=1+fun(i+1,nums,i,k);
+        m=max(m,g);
      }
          else if (k>0){
         int b=1+fun(i+1,nums,i,k-1);
         m=max(m,b);
     }
-    int c=fun(i+1,nums,p,k);
+    int b=fun(i+1,nums,p,k);
 
-    m=max(m,c);
+    m=max(m,b);
 
 
      return dp[i][p+1][k]=m;
